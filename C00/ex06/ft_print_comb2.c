@@ -1,34 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malcosta <malcosta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/12 15:34:34 by malcosta          #+#    #+#             */
-/*   Updated: 2025/03/13 15:36:30 by malcosta         ###   ########.fr       */
+/*   Created: 2025/03/12 18:26:03 by malcosta          #+#    #+#             */
+/*   Updated: 2025/03/12 18:44:55 by malcosta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
 
-void	ft_print_reverse_alphabet(void);
-
-void	ft_print_reverse_alphabet(void)
+void	ft_putchar(char a)
 {
-	char	l;
+	write(1, &a, 1);
+}
 
-	l = 'z';
-	while (l >= 'a')
+void	ft_print_comb2(void)
+{
+	int	a;
+	int	b;
+
+	a = 0;
+	while (a <= 98)
 	{
-		write(1, &l, 1);
-		l--;
+		b = a + 1;
+		while (b <= 99)
+		{
+			ft_putchar(a / 10 + 48);
+			ft_putchar(a % 10 + 48);
+			ft_putchar(' ');
+			ft_putchar(b / 10 + 48);
+			ft_putchar(b % 10 + 48);
+			if (!(a == 98 && b == 99))
+				write(1, ", ", 2);
+			b++;
+		}
+	a++;
 	}
 }
 
-/*
-
-int main () {
-	ft_print_reverse_alphabet();
-}
-*/
+// int main(void)
+// {
+// ft_print_comb2();
+// }
